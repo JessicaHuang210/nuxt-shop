@@ -3,7 +3,7 @@
     <div class="logo"></div>
     <nav>
       <a class="nav-item">產品
-        <fa :icon="['fas', 'faAdjust']" /></a>
+        <fa :icon="['fas', 'coffee']" /></a>
     </nav>
   </header>
 </template>
