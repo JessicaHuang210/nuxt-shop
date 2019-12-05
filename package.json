@@ -1,0 +1,21 @@
+{
+  "name": "nuxt-shop",
+  "version": "1.0.0",
+  "description": " ",
+  "author": "Jessica",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt --open",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
+  },
+  "dependencies": {
+    "@nuxtjs/axios": "^5.3.6",
+    "nuxt": "^2.0.0",
+    "sass-loader": "^8.0.0",
+    "node-sass": "^4.13.0",
+    "@nuxtjs/style-resources": "^1.0.0"
+  },
+  "devDependencies": {}
+}
