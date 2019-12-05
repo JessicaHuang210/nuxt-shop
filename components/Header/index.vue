@@ -1,7 +1,9 @@
 <template>
   <header class="header">
+    <div class="logo"></div>
     <nav>
-      <div>Hi, Jessica</div>
+      <a class="nav-item">產品
+        <fa :icon="['fas', 'faAdjust']" /></a>
     </nav>
   </header>
 </template>

@@ -39,7 +39,21 @@ export default {
     // Doc: https://axios.nuxtjs.org/usage
     "@nuxtjs/axios",
     // 全域 sass 變數設定
-    "@nuxtjs/style-resources"
+    "@nuxtjs/style-resources",
+    // fontawesome
+    [
+      "nuxt-fontawesome",
+      {
+        component: "fa",
+        imports: [
+          //import whole set
+          {
+            set: "@fortawesome/free-solid-svg-icons",
+            icons: ["fas"]
+          }
+        ]
+      }
+    ]
   ],
   // 全域 sass (變數、mixin、extend... ) 檔案引入設定
   styleResources: {
