@@ -1,5 +1,17 @@
 // colors
-$border-color-normal: #dee2e6;
+$primary-color: #427ab3;
+$primary-color-darken: darken(#427ab3, 10%);
+$second-color-light: #6c757d;
+$second-color: #343a40;
+$second-color-dark: #212529;
+
+$bg-color-1: #f8f9fa;
+
+$border-color: #dee2e6;
 
 // borders
-$border-normal: 1px solid $border-color-normal;
+$border-normal: 1px solid $border-color;
+
+// transition
+$transition-fast: 0.2s ease-in-out;
+$transition-normal: 0.4s ease-in-out;

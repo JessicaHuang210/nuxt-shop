@@ -1,5 +1,26 @@
 .header {
+  position: relative; // 讓下拉選單定位
   display: block;
-  padding: 10px 30px;
-  border-bottom: $border-normal;
+  > div {
+    border-bottom: $border-normal;
+  }
+}
+.sub-header {
+  padding: 0.7rem 0;
+
+  @include flex(center, space-between);
+  &--country {
+    color: $second-color-light;
+  }
+}
+.main-header {
+  padding: 1rem 0;
+
+  @include flex(center, flex-start);
+  &--menu--item {
+    margin: 0.5rem;
+    padding: 0.5rem;
+    color: $second-color;
+    font-weight: 900;
+  }
 }

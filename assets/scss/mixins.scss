@@ -1,0 +1,51 @@
+@mixin flex($align: center, $justi: flex-start) {
+  display: flex;
+  align-items: $align;
+  justify-content: $justi;
+}
+
+$sides: (top, bottom, left, right);
+@each $side in $sides {
+  @for $i from 1 through 5 {
+    .m#{str-slice($side,0,1)}-#{$i} {
+      margin-#{$side}: #{$i}rem;
+    }
+    .p#{str-slice($side,0,1)}-#{$i} {
+      padding-#{$side}: #{$i}rem;
+    }
+  }
+}
+
+// rwd斷點
+@mixin rwd($point) {
+  @if $point == xs {
+    @media (max-width: 375px) {
+      @content;
+    }
+  }
+  @if $point == sm {
+    @media (max-width: 568px) {
+      @content;
+    }
+  }
+  @if $point == pad {
+    @media (max-width: 768px) {
+      @content;
+    }
+  }
+  @if $point == md {
+    @media (max-width: 1024px) {
+      @content;
+    }
+  }
+  @if $point == lg {
+    @media (max-width: 1200px) {
+      @content;
+    }
+  }
+  @if $point == llg {
+    @media (max-width: 1540px) {
+      @content;
+    }
+  }
+}

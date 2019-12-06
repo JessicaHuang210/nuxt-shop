@@ -1,14 +1,39 @@
-* {
+*,
+*::before,
+*::after {
   box-sizing: inherit;
 }
 
 html {
-  height: 100%;
-  font-size: 11px;
+  box-sizing: border-box;
+  font-size: 62.5%;
   font-family: "Noto Sans TC", sans-serif;
 }
 body {
-  box-sizing: border-box;
+  color: $second-color-dark;
   letter-spacing: 1px;
   font-size: 1rem;
+}
+
+.logo {
+  width: 120px;
+}
+
+a {
+  color: $primary-color;
+  text-decoration: none;
+  &:hover,
+  &:active {
+    color: $primary-color-darken;
+  }
+}
+
+// vue動畫
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
+}
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
 }

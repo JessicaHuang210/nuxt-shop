@@ -1,0 +1,39 @@
+<template>
+  <div class="dropdown">
+    <a @click="handleMenuDropdownClick" class="dropdown--item" href="#" ref="dropdownItem">
+      {{ label }}
+      <fa :class="{active:isOpen}" :icon="['fas', iconName || 'chevron-down']" class="fa" />
+    </a>
+    <transition name="fade">
+      <div class="dropdown--content" v-if="isOpen">
+        <div class="container">
+          <div :key="i.col" class="dropdown--col" v-for="i in dataFormat">
+            <a :key="j.key" class="dropdown--col--item" href="#" v-for="j in i.data">{{ j.label}}</a>
+          </div>
+        </div>
+      </div>
+    </transition>
+  </div>
+</template>
+<script>
+export default {
+  name: "DropDownMenuItem",
+  props: ["label", "iconName", "data"],
+  data() {
+    return {
+      isOpen: false
+    };
+  },
+  computed: {
+    dataFormat() {
+      return this.data || [];
+    }
+  },
+  methods: {
+    handleMenuDropdownClick() {
+      this.isOpen = !this.isOpen;
+    }
+  }
+};
+</script>
+<style lang="scss" src="./style.scss" scoped></style>

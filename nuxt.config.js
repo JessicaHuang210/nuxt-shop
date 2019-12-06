@@ -57,7 +57,7 @@ export default {
   ],
   // 全域 sass (變數、mixin、extend... ) 檔案引入設定
   styleResources: {
-    scss: ["~assets/scss/variables.scss"]
+    scss: ["~assets/scss/variables.scss", "~assets/scss/mixins.scss"]
   },
   /*
    ** Axios module configuration
