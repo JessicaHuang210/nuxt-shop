@@ -27,7 +27,7 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: ["~/plugins/axios", "~/plugins/filter.js"],
+  plugins: ["~/plugins/axios", "~/plugins/filter.js", "~/plugins/firebase.js"],
   /*
    ** Nuxt.js dev-modules
    */

@@ -1,4 +1,12 @@
 .container {
   margin: auto;
+  padding: 0 5rem;
   max-width: 120rem;
+
+  @include rwd(xs) {
+    padding: 0 2rem;
+  }
+  @include rwd(sm) {
+    padding: 0 3rem;
+  }
 }

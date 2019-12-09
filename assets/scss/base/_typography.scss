@@ -28,6 +28,16 @@ a {
   }
 }
 
+.text-primary {
+  color: $primary-color;
+}
+.text-secondary {
+  color: $second-color;
+}
+.text-secondary-light {
+  color: $second-color-light;
+}
+
 // vue動畫
 .fade-enter-active,
 .fade-leave-active {

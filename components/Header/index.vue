@@ -12,8 +12,9 @@
             <a class="sub-header--menu--item" href="#">分店資訊</a>
             <a class="sub-header--menu--item" href="#">瑞典餐廳</a>
           </nav>
-
-          <a href="#">登入或註冊/購物清單</a>
+          <fa :icon="['fas','spinner']" class="fa fa-spin text-secondary-light" v-if="isLoading" />
+          <a @click.prevent="handleLoginBtnClick" href="#" v-if="!userLoggedIn && !isLoading">登入或註冊/購物清單</a>
+          <a @click.prevent="handleLogoutBtnClick" href="#" v-if="userLoggedIn && !isLoading">登出</a>
         </div>
       </div>
     </div>
@@ -22,7 +23,7 @@
       <div class="container">
         <div class="main-header">
           <div class="logo">
-            <img src="/IKEA_logo.svg" />
+            <!-- <img src="/IKEA_logo.svg" /> -->
           </div>
           <nav class="main-header--menu">
             <DropDownMenuItem :data="productMenuArr" class="main-header--menu--item" iconName="chevron-down" label="產品" />
@@ -38,6 +39,7 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 import DropDownMenuItem from "@/components/DropDownMenuItem";
 export default {
   name: "Header",
@@ -84,7 +86,24 @@ export default {
       ]
     };
   },
-  methods: {}
+  computed: {
+    ...mapGetters({
+      userProfile: "auth/user",
+      userLoggedIn: "auth/loginStatus",
+      isLoading: "auth/isLoading"
+    })
+  },
+  methods: {
+    handleLoginBtnClick() {
+      this.$router.push({ path: "/auth" });
+    },
+    handleLogoutBtnClick() {
+      this.$store.dispatch("auth/logout");
+    }
+  },
+  async created() {
+    this.userLoggedIn || (await this.$store.dispatch("auth/getLoginState"));
+  }
 };
 </script>
 <style lang="scss" src="./style.scss" scoped></style>
