@@ -4,8 +4,12 @@ $primary-color-darken: darken(#427ab3, 10%);
 $second-color-light: #6c757d;
 $second-color: #343a40;
 $second-color-dark: #212529;
+$error-color: #8f1111;
+$error-color-darken: darken(#8f1111, 10%);
 
 $bg-color-1: #f8f9fa;
+$bg-color-dark-1: #3d4e66;
+$bg-color-dark-2: darken($bg-color-dark-1, 20%);
 
 $border-color: #dee2e6;
 

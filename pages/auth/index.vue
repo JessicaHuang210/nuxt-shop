@@ -1,6 +1,13 @@
 <template>
   <div class="login">
-    <Btn @onPress="handleBtnClick" type="primary">Login with Google</Btn>
+    <Btn @onPress="handleGoogleBtnClick"
+         type="primary">
+      <fa :icon="['fab', 'google']"
+          class="fa" /> Login with Google</Btn>
+    <Btn @onPress="handleFacebookBtnClick"
+         type="primary">
+      <fa :icon="['fab', 'facebook']"
+          class="fa" /> Login with Facebook</Btn>
   </div>
 </template>
 <script>
@@ -18,8 +25,8 @@ export default {
     store.getters.userLoggedIn || (await store.dispatch("auth/getLoginState"));
   },
   methods: {
-    async handleBtnClick() {
-      await this.$store.dispatch("auth/login");
+    async handleGoogleBtnClick() {
+      await this.$store.dispatch("auth/googleLogin");
       this.$router.push({ path: "/" });
     }
   },
@@ -28,3 +35,12 @@ export default {
   }
 };
 </script>
+<style lang="scss" scoped>
+[class^="btn"] {
+  margin-bottom: 2rem;
+  box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.4);
+  &:hover {
+    box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);
+  }
+}
+</style>

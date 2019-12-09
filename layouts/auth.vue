@@ -12,7 +12,11 @@ export default {
 <style lang="scss" scoped>
 .center-container {
   min-height: 100vh;
-  background: linear-gradient(to bottom right, #3d4e66, #232f49);
+  background: linear-gradient(
+    to bottom right,
+    $bg-color-dark-1,
+    $bg-color-dark-2
+  );
 
   @include flex(center, center);
 }

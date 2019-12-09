@@ -18,7 +18,7 @@ export const actions = {
       commit("setIsLoading", false);
     });
   },
-  login({ commit }) {
+  googleLogin({ commit }) {
     var provider = new firebase.auth.GoogleAuthProvider();
     return firebase
       .auth()

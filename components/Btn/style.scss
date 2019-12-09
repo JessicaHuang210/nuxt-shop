@@ -11,3 +11,9 @@
     background-color: $primary-color-darken;
   }
 }
+.btn--error {
+  background-color: $error-color;
+  &:hover {
+    background-color: $error-color-darken;
+  }
+}
