@@ -1,7 +1,9 @@
 <template>
   <div>
     <Header />
-    <nuxt />
+    <div class="container">
+      <nuxt />
+    </div>
     <Footer />
   </div>
 </template>

@@ -1,0 +1,6 @@
+.footer {
+  min-height: 6rem;
+  background-color: $bg-color-1;
+
+  @include flex(center, center);
+}

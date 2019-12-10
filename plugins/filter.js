@@ -18,3 +18,8 @@ Vue.filter("commaFormat", val => {
 Vue.filter("dollarSign", val => {
   return `$ ${val}`;
 });
+
+// 空物件取直
+Vue.filter("emptyObj", (val, name) => {
+  return (val || {})[name] || "-";
+});

@@ -1,4 +1,5 @@
 import firebase from "firebase";
+import Cookie from "js-cookie";
 export const state = () => ({
   user: null,
   isLoading: false
@@ -42,9 +43,14 @@ export const actions = {
       .then(function() {
         // Sign-out successful.
         commit("setUser", null);
+        Cookie.remove("displayName");
+        Cookie.remove("email");
+        Cookie.remove("uid");
+        Cookie.remove("photoURL");
       })
       .catch(function(error) {
         // An error happened.
+        console.log(error);
       });
   }
 };
@@ -52,6 +58,10 @@ export const actions = {
 export const mutations = {
   setUser(state, user) {
     state.user = user;
+    user && Cookie.set("displayName", user.displayName);
+    user && Cookie.set("email", user.email);
+    user && Cookie.set("uid", user.uid);
+    user && Cookie.set("photoURL", user.photoURL);
   },
   setIsLoading(state, payload) {
     state.isLoading = payload;
