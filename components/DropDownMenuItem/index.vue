@@ -1,14 +1,25 @@
 <template>
   <div class="dropdown">
-    <a @click="handleMenuDropdownClick" class="dropdown--item" href="#" ref="dropdownItem">
+    <a @click="handleMenuDropdownClick"
+       class="dropdown--item"
+       href="#"
+       ref="dropdownItem">
       {{ label }}
-      <fa :class="{active:isOpen}" :icon="['fas', iconName || 'chevron-down']" class="fa" />
+      <fa :class="{active:isOpen}"
+          :icon="['fas', iconName || 'chevron-down']"
+          class="fa" />
     </a>
     <transition name="fade">
-      <div class="dropdown--content" v-if="isOpen">
+      <div class="dropdown--content"
+           v-if="isOpen">
         <div class="container">
-          <div :key="i.col" class="dropdown--col" v-for="i in dataFormat">
-            <a :key="j.key" class="dropdown--col--item" href="#" v-for="j in i.data">{{ j.label}}</a>
+          <div :key="i.col"
+               class="dropdown--col"
+               v-for="i in dataFormat">
+            <a :key="j.key"
+               class="dropdown--col--item"
+               href="#"
+               v-for="j in i.data">{{ j.label}}</a>
           </div>
         </div>
       </div>
@@ -32,7 +43,18 @@ export default {
   methods: {
     handleMenuDropdownClick() {
       this.isOpen = !this.isOpen;
+    },
+    close(e) {
+      if (!this.$el.contains(e.target)) {
+        this.isOpen = false;
+      }
     }
+  },
+  mounted() {
+    window.addEventListener("click", this.close);
+  },
+  beforeDestroy() {
+    window.removeEventListener("click", this.close);
   }
 };
 </script>

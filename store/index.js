@@ -1,5 +1,5 @@
 import { getUserFromCookie } from "~/utils";
-import Cookie from "js-cookie";
+
 export const actions = {
   nuxtServerInit({ dispatch, commit }, { req }) {
     const uid = getUserFromCookie(req.headers.cookie, "uid");

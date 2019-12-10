@@ -16,11 +16,31 @@
 .main-header {
   padding: 1rem 0;
 
-  @include flex(center, flex-start);
+  @include flex(center, space-between);
+  > div {
+    @include flex();
+  }
   &--menu--item {
     margin: 0.5rem;
     padding: 0.5rem;
     color: $second-color;
     font-weight: 900;
+  }
+  .search-input {
+    margin-right: 1rem;
+    padding: 0.5rem;
+    min-height: 3.8rem;
+    border: $border-normal;
+    border-radius: 0.3rem;
+    input {
+      outline: none;
+      border: none;
+    }
+  }
+  .cart {
+    display: block;
+    padding: 0.5rem;
+    color: $second-color-light;
+    font-size: 2rem;
   }
 }

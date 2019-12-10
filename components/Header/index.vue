@@ -38,25 +38,41 @@
     <div class="main-header-wrap">
       <div class="container">
         <div class="main-header">
-          <div class="logo">
-            <!-- <img src="/IKEA_logo.svg" /> -->
+          <!-- 左邊 -->
+          <div>
+            <div class="logo">
+              <img src="/IKEA_logo.svg" />
+            </div>
+            <nav class="main-header--menu">
+              <DropDownMenuItem :data="productMenuArr"
+                                class="main-header--menu--item"
+                                iconName="chevron-down"
+                                label="產品" />
+              <DropDownMenuItem class="main-header--menu--item"
+                                iconName="chevron-down"
+                                label="空間" />
+              <a class="main-header--menu--item"
+                 href="#">佈置靈感</a>
+              <a class="main-header--menu--item"
+                 href="#">再創低價</a>
+              <a class="main-header--menu--item"
+                 href="#">新品專區</a>
+            </nav>
           </div>
-          <nav class="main-header--menu">
-            <DropDownMenuItem :data="productMenuArr"
-                              class="main-header--menu--item"
-                              iconName="chevron-down"
-                              label="產品" />
-            <DropDownMenuItem class="main-header--menu--item"
-                              iconName="chevron-down"
-                              label="空間" />
-            <a class="main-header--menu--item"
-               href="#">佈置靈感</a>
-            <a class="main-header--menu--item"
-               href="#">再創低價</a>
-            <a class="main-header--menu--item"
-               href="#">新品專區</a>
-          </nav>
+          <!-- 右邊 -->
+          <div>
+            <div class="search-input">
+              <input type="text" />
+              <fa :icon="['fas','search']"
+                  class="fa" />
+            </div>
+            <div class="cart">
+              <fa :icon="['fas','shopping-cart']"
+                  class="fa" />
+            </div>
+          </div>
         </div>
+
       </div>
     </div>
   </header>
@@ -127,8 +143,7 @@ export default {
     handleProfileBtnClick() {
       this.$router.push({ path: "/profile" });
     }
-  },
-  async created() {}
+  }
 };
 </script>
 <style lang="scss" src="./style.scss" scoped></style>
