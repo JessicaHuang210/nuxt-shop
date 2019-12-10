@@ -32,7 +32,10 @@
     min-height: 3.8rem;
     border: $border-normal;
     border-radius: 0.3rem;
+
+    @include flex(center, space-between);
     input {
+      min-width: 18rem;
       outline: none;
       border: none;
     }

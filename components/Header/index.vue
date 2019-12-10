@@ -17,7 +17,7 @@
                href="#">瑞典餐廳</a>
           </nav>
 
-          <fa :icon="['fas','spinner']"
+          <fa :icon="['fas', 'spinner']"
               class="fa fa-spin text-secondary-light"
               v-if="isLoading" />
           <a @click.prevent="handleLoginBtnClick"
@@ -25,8 +25,7 @@
              v-if="!userLoggedIn && !isLoading">登入或註冊/購物清單</a>
           <div v-if="userLoggedIn && !isLoading">
             <a @click.prevent="handleProfileBtnClick"
-               href="#">Hi, {{this.userProfile.displayName}}
-            </a>
+               href="#">Hi, {{ this.userProfile.displayName }}</a>
             |
             <a @click.prevent="handleLogoutBtnClick"
                href="#">登出</a>
@@ -40,7 +39,8 @@
         <div class="main-header">
           <!-- 左邊 -->
           <div>
-            <div class="logo">
+            <div @click="handleLogoClick"
+                 class="logo">
               <img src="/IKEA_logo.svg" />
             </div>
             <nav class="main-header--menu">
@@ -63,16 +63,15 @@
           <div>
             <div class="search-input">
               <input type="text" />
-              <fa :icon="['fas','search']"
+              <fa :icon="['fas', 'search']"
                   class="fa" />
             </div>
             <div class="cart">
-              <fa :icon="['fas','shopping-cart']"
+              <fa :icon="['fas', 'shopping-cart']"
                   class="fa" />
             </div>
           </div>
         </div>
-
       </div>
     </div>
   </header>
@@ -142,6 +141,9 @@ export default {
     },
     handleProfileBtnClick() {
       this.$router.push({ path: "/profile" });
+    },
+    handleLogoClick() {
+      this.$router.push({ path: "/" });
     }
   }
 };

@@ -1,0 +1,26 @@
+.slider {
+  overflow: hidden;
+  &--content {
+    &--item {
+      img {
+        width: 100%;
+      }
+    }
+  }
+  &--dots {
+    margin-top: 1rem;
+    text-align: center;
+    &--item {
+      display: inline-block;
+      margin: 0 0.5rem;
+      width: 0.7rem;
+      height: 0.7rem;
+      border-radius: 7rem;
+      background-color: $second-color;
+      cursor: pointer;
+      &.active {
+        background-color: $primary-color;
+      }
+    }
+  }
+}

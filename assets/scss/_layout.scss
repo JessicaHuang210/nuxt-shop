@@ -1,15 +1,18 @@
 .container {
   margin: auto;
-  padding: 0 5rem;
+  padding: 0 2rem;
   max-width: 120rem;
 
-  @include rwd(xs) {
+  @include rwd(md) {
+    padding: 0 1rem;
+  }
+  @include rwd(lg) {
     padding: 0 2rem;
   }
-  @include rwd(sm) {
-    padding: 0 3rem;
-  }
 }
-.section {
+.section-xs {
+  padding: 1rem 0;
+}
+.section-md {
   padding: 5rem 0;
 }
