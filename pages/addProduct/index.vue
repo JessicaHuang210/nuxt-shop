@@ -77,15 +77,15 @@ export default {
       this.formData = deepCopy(formDefaultData);
     },
     async handleAddBtnClick(invalid) {
-      if (!invalid) {
-        this.isLoading = true;
-        const newPostKey = db.ref("products").push().key;
-        let updates = {};
-        updates["/products/" + newPostKey] = this.formData;
-        await db.ref().update(updates);
-        this.isLoading = false;
-        this.reset();
-      }
+      if (invalid) return;
+
+      this.isLoading = true;
+      const newPostKey = db.ref("products").push().key;
+      let updates = {};
+      updates["/products/" + newPostKey] = this.formData;
+      await db.ref().update(updates);
+      this.isLoading = false;
+      this.reset();
     }
   }
 };
