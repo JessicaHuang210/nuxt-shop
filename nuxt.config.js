@@ -29,7 +29,12 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: ["~/plugins/axios", "~/plugins/filter.js", "~/plugins/firebase.js"],
+  plugins: [
+    "~/plugins/axios",
+    "~/plugins/filter.js",
+    "~/plugins/firebase.js",
+    "~/plugins/vee.js"
+  ],
   /*
    ** Nuxt.js dev-modules
    */
@@ -74,6 +79,7 @@ export default {
    ** Build configuration
    */
   build: {
+    transpile: ["vee-validate/dist/rules"],
     /*
      ** You can extend webpack config here
      */

@@ -1,12 +1,24 @@
 .card {
   @include rwd(lg) {
     flex: 0 0 30%;
+    &:not(:nth-child(3n)) {
+      margin-right: 5%;
+    }
   }
   @include rwd(llg) {
     flex: 0 0 30%;
+    &:not(:nth-child(3n)) {
+      margin-right: 5%;
+    }
   }
   @include rwd(sm) {
     flex: 0 0 45%;
+    &:not(:nth-child(3n)) {
+      margin-right: 0;
+    }
+    &:not(:nth-child(2n)) {
+      margin-right: 10%;
+    }
   }
   @include rwd(xs) {
     flex: 0 0 100%;
@@ -14,7 +26,7 @@
   &--wrap {
     flex-wrap: wrap;
 
-    @include flex(flex-start, space-between);
+    @include flex(flex-start, flex-start);
   }
   &--img {
     width: 100%;

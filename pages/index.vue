@@ -17,15 +17,15 @@ export default {
   },
   async asyncData(context) {
     // 從firebase database取資料
-    let arr = [];
+    let list = {};
     await db
       .ref("products")
       .once("value")
       .then(res => {
-        arr = res.val();
+        list = res.val();
       });
     return {
-      productList: arr
+      productList: list
     };
   },
   created() {}

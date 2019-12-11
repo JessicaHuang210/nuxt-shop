@@ -4,7 +4,8 @@
     <div class="profile--item"><span>email : </span>{{ this.user | emptyObj('email') }}</div>
     <div class="profile--item"><span>uid : </span>{{ this.user | emptyObj('uid') }}</div>
     <div class="profile--item"><span>photoURL : </span>{{ this.user | emptyObj('photoURL') }}</div>
-    <Btn type="primary">新增商品</Btn>
+    <Btn @onPress="handleAddProdBtnClick"
+         type="primary">新增商品</Btn>
   </div>
 </template>
 <script>
@@ -24,6 +25,11 @@ export default {
   watch: {
     user(val) {
       val || this.$router.push({ path: "/auth" });
+    }
+  },
+  methods: {
+    handleAddProdBtnClick() {
+      this.$router.push({ path: "/addProduct" });
     }
   }
 };

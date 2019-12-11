@@ -1,5 +1,6 @@
 <template>
-  <a :class="[btnType,btnWith]"
+  <a class="btn"
+     :class="[btnType,btnWith,btnDisabled]"
      @click.prevent="handleBtnClick"
      href="#">
     <slot></slot>
@@ -8,13 +9,16 @@
 <script>
 export default {
   name: "Btn",
-  props: ["type", "block"],
+  props: ["type", "block", "disabled"],
   computed: {
     btnType() {
       return `btn--${this.type || "primary"}`;
     },
     btnWith() {
       return this.block !== undefined ? "btn--block" : "";
+    },
+    btnDisabled() {
+      return this.disabled ? "disabled" : "";
     }
   },
   methods: {

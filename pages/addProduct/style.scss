@@ -1,12 +1,16 @@
 .addProduct {
-  text-align: center;
   .btn--primary {
     margin: 3rem auto;
     max-width: 20rem;
   }
 }
 .form {
-  @include flex(center, space-around);
+  margin: auto;
+  min-height: 23rem;
+  max-width: 55rem;
+  width: 100%;
+
+  @include flex(center, space-between);
   &--item {
     margin-bottom: 1rem;
     > label {
@@ -18,8 +22,5 @@
       padding: 0.5rem;
       width: 20rem;
     }
-  }
-  img {
-    max-width: 3;
   }
 }

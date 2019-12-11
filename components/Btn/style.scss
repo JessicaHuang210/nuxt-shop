@@ -1,10 +1,14 @@
-[class^="btn"] {
+.btn {
   display: inline-block;
   padding: 1rem 2rem;
   color: #fff;
   text-align: center;
   font-size: 1.7rem;
   transition: $transition-fast;
+  &.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
 }
 .btn--block {
   display: block;
