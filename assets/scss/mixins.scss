@@ -44,7 +44,7 @@ $sides: (top, bottom, left, right);
     }
   }
   @if $point == llg {
-    @media (max-width: 1540px) {
+    @media (min-width: 1200px) {
       @content;
     }
   }

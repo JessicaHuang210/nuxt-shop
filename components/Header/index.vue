@@ -62,7 +62,8 @@
           <!-- 右邊 -->
           <div>
             <div class="search-input">
-              <input type="text" />
+              <input placeholder="搜尋看看沙發、地毯"
+                     type="text" />
               <fa :icon="['fas', 'search']"
                   class="fa" />
             </div>
