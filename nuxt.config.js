@@ -20,6 +20,8 @@ export default {
    ** Customize the progress-bar color
    */
   loading: { color: "#fff" },
+  // 頁面轉場
+  pageTransition: "fade",
   /*
    ** Global CSS
    */

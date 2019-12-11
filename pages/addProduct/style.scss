@@ -1,0 +1,25 @@
+.addProduct {
+  text-align: center;
+  .btn--primary {
+    margin: 3rem auto;
+    max-width: 20rem;
+  }
+}
+.form {
+  @include flex(center, space-around);
+  &--item {
+    margin-bottom: 1rem;
+    > label {
+      display: inline-block;
+      min-width: 8rem;
+      font-size: 1.2rem;
+    }
+    input {
+      padding: 0.5rem;
+      width: 20rem;
+    }
+  }
+  img {
+    max-width: 3;
+  }
+}

@@ -28,16 +28,18 @@
   }
   .search-input {
     margin-right: 1rem;
-    padding: 0.5rem;
+    padding: 0.5rem 0.8rem;
     min-height: 3.8rem;
     border: $border-normal;
-    border-radius: 0.3rem;
 
     @include flex(center, space-between);
     input {
       min-width: 18rem;
       outline: none;
       border: none;
+    }
+    .fa {
+      margin: 0.7rem;
     }
   }
   .cart {

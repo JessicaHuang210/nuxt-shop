@@ -1,13 +1,15 @@
 <template>
   <div class="">
     <Btn @onPress="handleGoogleBtnClick"
-         type="primary">
+         type="primary"
+         block>
       <fa :icon="['fab', 'google']"
           class="fa" /> Login with Google
     </Btn>
     <div class="mb-2"></div>
     <Btn @onPress="handleBackBtnClick"
-         type="primary">回首頁</Btn>
+         type="primary"
+         block>回首頁</Btn>
   </div>
 </template>
 <script>
