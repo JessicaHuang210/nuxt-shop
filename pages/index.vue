@@ -1,6 +1,7 @@
 <template>
   <div class="section-xs">
-    <ProductCard :data="productList" />
+    <ProductCard :data="productList"
+                 @onReviewPress="onReviewPress" />
   </div>
 </template>
 
@@ -28,6 +29,11 @@ export default {
       productList: list
     };
   },
-  created() {}
+  created() {},
+  methods: {
+    onReviewPress(key) {
+      console.log(key);
+    }
+  }
 };
 </script>

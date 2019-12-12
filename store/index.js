@@ -1,5 +1,8 @@
 import { getUserFromCookie } from "~/utils";
 
+export const state = () => ({
+  isReviewActive: false
+});
 export const actions = {
   nuxtServerInit({ dispatch, commit }, { req }) {
     const uid = getUserFromCookie(req.headers.cookie, "uid");
@@ -12,4 +15,14 @@ export const actions = {
         photoURL: getUserFromCookie(req.headers.cookie, "photoURL")
       });
   }
+};
+
+export const mutations = {
+  setReviewActive(state, payload) {
+    state.isReviewActive = payload;
+  }
+};
+
+export const getters = {
+  isReviewActive: state => state.isReviewActive
 };
