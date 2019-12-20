@@ -19,11 +19,9 @@
 <script>
 export default {
   name: "ProductCard",
-  props: ["data"],
+  props: { data: { type: Object, default: () => {} } },
   data() {
-    return {
-      price: 13000
-    };
+    return {};
   },
   methods: {
     handleReviewBtnClick(key) {

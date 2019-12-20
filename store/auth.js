@@ -46,6 +46,8 @@ export const actions = {
         Cookie.remove("email");
         Cookie.remove("uid");
         Cookie.remove("photoURL");
+        Cookie.remove("cartCount");
+        commit("product/setCartCount", 0, { root: true });
       })
       .catch(function(error) {
         // An error happened.

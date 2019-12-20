@@ -15,6 +15,11 @@ export const actions = {
         uid: uid,
         photoURL: getUserFromCookie(req.headers.cookie, "photoURL")
       });
+    uid &&
+      commit(
+        "product/setCartCount",
+        parseInt(getUserFromCookie(req.headers.cookie, "cartCount"))
+      );
   }
 };
 

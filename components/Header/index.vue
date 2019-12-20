@@ -67,10 +67,13 @@
               <fa :icon="['fas', 'search']"
                 class="fa" />
             </div>
-            <div class="cart">
+            <a href="#"
+              class="cart">
               <fa :icon="['fas', 'shopping-cart']"
                 class="fa" />
-            </div>
+              <div v-if="cartCount"
+                class="cart--badge">{{ cartCount }}</div>
+            </a>
           </div>
         </div>
       </div>
@@ -79,6 +82,7 @@
 </template>
 
 <script>
+import Cookie from "js-cookie";
 import { mapGetters, mapState } from "vuex";
 import DropDownMenuItem from "@/components/DropDownMenuItem";
 export default {
@@ -127,7 +131,10 @@ export default {
     };
   },
   computed: {
-    ...mapState(["isLoading"]),
+    ...mapState({
+      isLoading: state => state.isLoading,
+      cartCount: state => state.product.cartCount
+    }),
     ...mapGetters({
       userProfile: "auth/user",
       userLoggedIn: "auth/loginStatus"

@@ -1,6 +1,8 @@
 .header {
-  position: relative; // 讓下拉選單定位
+  position: sticky; // 讓下拉選單定位
+  top: -2.8rem;
   display: block;
+  background-color: #fff;
   > div {
     border-bottom: $border-normal;
   }
@@ -46,6 +48,21 @@
     display: block;
     padding: 0.5rem;
     color: $second-color-light;
-    font-size: 2rem;
+    font-size: $fs-xl;
+    position: relative;
+    &--badge {
+      font-size: $fs-normal;
+      display: inline-flex;
+      background-color: $error-color-lighter;
+      color: #fff;
+      width: 1.5rem;
+      height: 1.5rem;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      top: -0.3rem;
+      right: -0.6rem;
+      border-radius: 3rem;
+    }
   }
 }

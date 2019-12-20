@@ -22,14 +22,16 @@
         <span class="review--price--sale">{{ data.price | commaFormat | dollarSign }}</span>
       </div>
       <span>產品編號：103.397.36</span>
-      <Btn class="review--add-to-cart"
+      <Btn @onPress="handleAddCartClick"
+        class="review--add-to-cart"
         block>加入購物車</Btn>
     </div>
   </div>
 </template>
 <script>
+import Cookie from "js-cookie";
 import Btn from "@/components/Btn";
-import { mapState } from "vuex";
+import { mapState, mapGetters } from "vuex";
 export default {
   name: "Review",
   components: {
@@ -39,11 +41,25 @@ export default {
     ...mapState({
       data: state => state.product.reviewProd,
       isLoading: state => state.isLoading
+    }),
+    ...mapGetters({
+      loginStatus: "auth/loginStatus"
     })
   },
   methods: {
     handleCloseClick() {
       this.$store.commit("setReviewActive", false);
+    },
+    handleAddCartClick() {
+      const cartCountNow = Cookie.get("cartCount");
+      this.loginStatus || this.$router.push({ path: "/auth" });
+      this.loginStatus &&
+        Cookie.set("cartCount", cartCountNow ? parseInt(cartCountNow) + 1 : 1);
+      this.loginStatus &&
+        this.$store.commit(
+          "product/setCartCount",
+          cartCountNow ? parseInt(cartCountNow) + 1 : 1
+        );
     }
   }
 };
