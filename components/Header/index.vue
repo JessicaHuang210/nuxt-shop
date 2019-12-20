@@ -8,27 +8,27 @@
 
           <nav class="sub-header--menu">
             <a class="sub-header--menu--item"
-               href="#">宜家卡</a>
+              href="#">宜家卡</a>
             <a class="sub-header--menu--item"
-               href="#">IKEA 企業業務</a>
+              href="#">IKEA 企業業務</a>
             <a class="sub-header--menu--item"
-               href="#">分店資訊</a>
+              href="#">分店資訊</a>
             <a class="sub-header--menu--item"
-               href="#">瑞典餐廳</a>
+              href="#">瑞典餐廳</a>
           </nav>
 
           <fa :icon="['fas', 'spinner']"
-              class="fa fa-spin text-secondary-light"
-              v-if="isLoading" />
+            class="fa fa-spin text-secondary-light"
+            v-if="isLoading" />
           <a @click.prevent="handleLoginBtnClick"
-             href="#"
-             v-if="!userLoggedIn && !isLoading">登入或註冊/購物清單</a>
+            href="#"
+            v-if="!userLoggedIn && !isLoading">登入或註冊/購物清單</a>
           <div v-if="userLoggedIn && !isLoading">
             <a @click.prevent="handleProfileBtnClick"
-               href="#">Hi, {{ this.userProfile.displayName }}</a>
+              href="#">Hi, {{ this.userProfile.displayName }}</a>
             |
             <a @click.prevent="handleLogoutBtnClick"
-               href="#">登出</a>
+              href="#">登出</a>
           </div>
         </div>
       </div>
@@ -40,36 +40,36 @@
           <!-- 左邊 -->
           <div>
             <div @click="handleLogoClick"
-                 class="logo">
+              class="logo">
               <img src="/IKEA_logo.svg" />
             </div>
             <nav class="main-header--menu">
               <DropDownMenuItem :data="productMenuArr"
-                                class="main-header--menu--item"
-                                iconName="chevron-down"
-                                label="產品" />
+                class="main-header--menu--item"
+                iconName="chevron-down"
+                label="產品" />
               <DropDownMenuItem class="main-header--menu--item"
-                                iconName="chevron-down"
-                                label="空間" />
+                iconName="chevron-down"
+                label="空間" />
               <a class="main-header--menu--item"
-                 href="#">佈置靈感</a>
+                href="#">佈置靈感</a>
               <a class="main-header--menu--item"
-                 href="#">再創低價</a>
+                href="#">再創低價</a>
               <a class="main-header--menu--item"
-                 href="#">新品專區</a>
+                href="#">新品專區</a>
             </nav>
           </div>
           <!-- 右邊 -->
           <div>
             <div class="search-input">
               <input placeholder="搜尋看看沙發、地毯"
-                     type="text" />
+                type="text" />
               <fa :icon="['fas', 'search']"
-                  class="fa" />
+                class="fa" />
             </div>
             <div class="cart">
               <fa :icon="['fas', 'shopping-cart']"
-                  class="fa" />
+                class="fa" />
             </div>
           </div>
         </div>
@@ -79,7 +79,7 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+import { mapGetters, mapState } from "vuex";
 import DropDownMenuItem from "@/components/DropDownMenuItem";
 export default {
   name: "Header",
@@ -127,10 +127,10 @@ export default {
     };
   },
   computed: {
+    ...mapState(["isLoading"]),
     ...mapGetters({
       userProfile: "auth/user",
-      userLoggedIn: "auth/loginStatus",
-      isLoading: "auth/isLoading"
+      userLoggedIn: "auth/loginStatus"
     })
   },
   methods: {

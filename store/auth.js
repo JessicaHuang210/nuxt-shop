@@ -1,13 +1,12 @@
 import firebase from "firebase";
 import Cookie from "js-cookie";
 export const state = () => ({
-  user: null,
-  isLoading: false
+  user: null
 });
 
 export const actions = {
   getLoginState({ commit }) {
-    commit("setIsLoading", true);
+    commit("setIsLoading", true, { root: true });
     return firebase.auth().onAuthStateChanged(user => {
       user &&
         commit("setUser", {
@@ -16,7 +15,7 @@ export const actions = {
           uid: user.uid,
           photoURL: user.photoURL
         });
-      commit("setIsLoading", false);
+      commit("setIsLoading", false, { root: true });
     });
   },
   googleLogin({ commit }) {
@@ -62,13 +61,9 @@ export const mutations = {
     user && Cookie.set("email", user.email);
     user && Cookie.set("uid", user.uid);
     user && Cookie.set("photoURL", user.photoURL);
-  },
-  setIsLoading(state, payload) {
-    state.isLoading = payload;
   }
 };
 export const getters = {
   user: state => state.user,
-  loginStatus: state => state.user !== null && state.user !== undefined,
-  isLoading: state => state.isLoading
+  loginStatus: state => state.user !== null && state.user !== undefined
 };

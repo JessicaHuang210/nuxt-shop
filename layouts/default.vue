@@ -1,15 +1,19 @@
 <template>
   <div class="main">
     <div class="main--left"
-      :class="{active:isReviewActive}">
-      <div class="main--left--overlay"></div>
+         :class="{active:isReviewActive}">
+      <div @click="handleOverlayClick"
+           class="main--left--overlay"></div>
       <Header />
       <div class="container">
         <nuxt />
       </div>
       <Footer />
     </div>
-    <Review class="main--right" />
+    <transition name="slideRtoL">
+      <Review v-if="isReviewActive"
+              class="main--right" />
+    </transition>
   </div>
 </template>
 <script>
@@ -26,6 +30,11 @@ export default {
   },
   computed: {
     ...mapState(["isReviewActive"])
+  },
+  methods: {
+    handleOverlayClick() {
+      this.$store.commit("setReviewActive", false);
+    }
   }
 };
 </script>

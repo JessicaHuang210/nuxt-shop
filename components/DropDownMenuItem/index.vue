@@ -6,7 +6,7 @@
        ref="dropdownItem">
       {{ label }}
       <fa :class="{active:isOpen}"
-          :icon="['fas', iconName || 'chevron-down']"
+          :icon="['fas', iconName]"
           class="fa" />
     </a>
     <transition name="fade">
@@ -29,7 +29,11 @@
 <script>
 export default {
   name: "DropDownMenuItem",
-  props: ["label", "iconName", "data"],
+  props: {
+    label: { type: String, default: "未確認" },
+    iconName: { type: String, default: "chevron-down" },
+    data: { type: Array, default: () => [] }
+  },
   data() {
     return {
       isOpen: false

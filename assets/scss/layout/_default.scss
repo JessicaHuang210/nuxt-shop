@@ -6,20 +6,20 @@
     transition: $transition-normal;
     &.active {
       transform: translateX(-30rem);
-    }
-    &--overlay {
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      background-color: rgba(white, 0.6);
+      .main--left--overlay {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-color: rgba(white, 0.6);
+        z-index: 1;
+      }
     }
   }
   &--right {
     position: fixed;
     top: 0;
     right: 0;
-    z-index: -1;
   }
 }

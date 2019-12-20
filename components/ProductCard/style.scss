@@ -34,7 +34,7 @@
   &--title {
     margin-bottom: 0.5rem;
     font-weight: 900;
-    font-size: 1.7rem;
+    font-size: $fs-lg;
   }
   &--description {
     display: block;
@@ -43,7 +43,7 @@
   &--price {
     margin-bottom: 1.5rem;
     font-weight: 900;
-    font-size: 2rem;
+    font-size: $fs-xl;
   }
   &--preview {
     display: block;
@@ -63,7 +63,7 @@
     }
     .fa {
       margin-right: 0.5rem;
-      font-size: 2rem;
+      font-size: $fs-xl;
 
       @include rwd(sm) {
         margin-right: 0;

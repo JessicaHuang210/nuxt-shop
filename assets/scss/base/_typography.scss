@@ -12,7 +12,7 @@ html {
 body {
   color: $second-color-dark;
   letter-spacing: 1px;
-  font-size: 1rem;
+  font-size: $fs-normal;
 }
 
 .logo {
@@ -47,4 +47,22 @@ a {
 .fade-enter,
 .fade-leave-to {
   opacity: 0;
+}
+
+.fadeFast-enter-active,
+.fadeFast-leave-active {
+  transition: opacity 0.2s;
+}
+.fadeFast-enter,
+.fadeFast-leave-to {
+  opacity: 0;
+}
+
+.slideRtoL-enter-active,
+.slideRtoL-leave-active {
+  transition: $transition-normal;
+}
+.slideRtoL-enter,
+.slideRtoL-leave-to {
+  transform: translateX(30rem);
 }

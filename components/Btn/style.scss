@@ -3,7 +3,7 @@
   padding: 1rem 2rem;
   color: #fff;
   text-align: center;
-  font-size: 1.7rem;
+  font-size: $fs-lg;
   transition: $transition-fast;
   &.disabled {
     opacity: 0.5;

@@ -9,10 +9,20 @@
 <script>
 export default {
   name: "Btn",
-  props: ["type", "block", "disabled"],
+  props: {
+    type: {
+      type: String,
+      default: "primary"
+    },
+    block: {
+      type: String,
+      default: undefined
+    },
+    disabled: { type: Boolean, default: false }
+  },
   computed: {
     btnType() {
-      return `btn--${this.type || "primary"}`;
+      return `btn--${this.type}`;
     },
     btnWith() {
       return this.block !== undefined ? "btn--block" : "";

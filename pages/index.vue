@@ -1,7 +1,7 @@
 <template>
   <div class="section-xs">
     <ProductCard :data="productList"
-                 @onReviewPress="onReviewPress" />
+      @onReviewPress="onReviewPress" />
   </div>
 </template>
 
@@ -29,10 +29,18 @@ export default {
       productList: list
     };
   },
-  created() {},
   methods: {
-    onReviewPress(key) {
-      console.log(key);
+    async onReviewPress(key) {
+      let obj = {};
+      this.$store.commit("setIsLoading", true);
+      await db
+        .ref("products/" + key)
+        .once("value")
+        .then(res => {
+          obj = res.val();
+          this.$store.commit("product/setReviewProd", obj);
+          this.$store.commit("setIsLoading", false);
+        });
     }
   }
 };
