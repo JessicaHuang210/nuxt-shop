@@ -1,5 +1,9 @@
 <template>
   <div class="main">
+    <transition name="fade">
+      <Review v-if="isReviewActive"
+              class="main--right" />
+    </transition>
     <div class="main--left"
          :class="{active:isReviewActive}">
       <div @click="handleOverlayClick"
@@ -10,10 +14,6 @@
       </div>
       <Footer />
     </div>
-    <transition name="slideRtoL">
-      <Review v-if="isReviewActive"
-              class="main--right" />
-    </transition>
   </div>
 </template>
 <script>

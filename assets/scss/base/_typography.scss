@@ -57,12 +57,3 @@ a {
 .fadeFast-leave-to {
   opacity: 0;
 }
-
-.slideRtoL-enter-active,
-.slideRtoL-leave-active {
-  transition: $transition-normal;
-}
-.slideRtoL-enter,
-.slideRtoL-leave-to {
-  transform: translateX(30rem);
-}

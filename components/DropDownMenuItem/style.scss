@@ -22,15 +22,24 @@
     > div {
       @include flex(flex-start, space-between);
     }
-  }
-  &--col {
-    width: 100%;
+    .container {
+      flex-wrap: wrap;
+      justify-content: flex-start;
+    }
     &--item {
       display: block;
       margin-left: -0.5rem;
       padding: 1rem 0.5rem;
       color: $second-color-light;
       transition: $transition-fast;
+      flex-basis: 33.3%;
+
+      @include rwd(md) {
+        flex-basis: 50%;
+      }
+      @include rwd(sm) {
+        flex-basis: 100%;
+      }
       &:hover {
         background-color: $bg-color-1;
       }

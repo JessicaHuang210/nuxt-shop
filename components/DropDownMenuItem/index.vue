@@ -1,26 +1,22 @@
 <template>
   <div class="dropdown">
     <a @click="handleMenuDropdownClick"
-       class="dropdown--item"
-       href="#"
-       ref="dropdownItem">
+      class="dropdown--item"
+      href="#"
+      ref="dropdownItem">
       {{ label }}
       <fa :class="{active:isOpen}"
-          :icon="['fas', iconName]"
-          class="fa" />
+        :icon="['fas', iconName]"
+        class="fa" />
     </a>
     <transition name="fade">
       <div class="dropdown--content"
-           v-if="isOpen">
+        v-if="isOpen">
         <div class="container">
-          <div :key="i.col"
-               class="dropdown--col"
-               v-for="i in dataFormat">
-            <a :key="j.key"
-               class="dropdown--col--item"
-               href="#"
-               v-for="j in i.data">{{ j.label}}</a>
-          </div>
+          <a :key="i.key"
+            v-for="i in dataFormat"
+            class="dropdown--content--item"
+            href="#">{{ i.label}}</a>
         </div>
       </div>
     </transition>

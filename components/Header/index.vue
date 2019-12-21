@@ -91,42 +91,20 @@ export default {
   data() {
     return {
       productMenuArr: [
-        {
-          col: 0,
-          data: [
-            { key: 1, label: "雙人床" },
-            { key: 2, label: "泡綿/乳膠床墊" },
-            { key: 3, label: "彈簧床墊" },
-            { key: 4, label: "系統衣櫃 - PAX系列" },
-            { key: 5, label: "衣櫃" },
-            { key: 6, label: "抽屜櫃" },
-            { key: 7, label: "棉被" }
-          ]
-        },
-        {
-          col: 2,
-          data: [
-            { key: 1, label: "雙人床" },
-            { key: 2, label: "泡綿/乳膠床墊" },
-            { key: 3, label: "彈簧床墊" },
-            { key: 4, label: "系統衣櫃 - PAX系列" },
-            { key: 5, label: "衣櫃" },
-            { key: 6, label: "抽屜櫃" },
-            { key: 7, label: "棉被" }
-          ]
-        },
-        {
-          col: 3,
-          data: [
-            { key: 1, label: "雙人床" },
-            { key: 2, label: "泡綿/乳膠床墊" },
-            { key: 3, label: "彈簧床墊" },
-            { key: 4, label: "系統衣櫃 - PAX系列" },
-            { key: 5, label: "衣櫃" },
-            { key: 6, label: "抽屜櫃" },
-            { key: 7, label: "棉被" }
-          ]
-        }
+        { key: 1, label: "雙人床" },
+        { key: 2, label: "泡綿/乳膠床墊" },
+        { key: 3, label: "彈簧床墊" },
+        { key: 4, label: "系統衣櫃 - PAX系列" },
+        { key: 5, label: "衣櫃" },
+        { key: 6, label: "抽屜櫃" },
+        { key: 7, label: "棉被" },
+        { key: 8, label: "雙人床" },
+        { key: 9, label: "泡綿/乳膠床墊" },
+        { key: 10, label: "彈簧床墊" },
+        { key: 11, label: "系統衣櫃 - PAX系列" },
+        { key: 12, label: "衣櫃" },
+        { key: 13, label: "抽屜櫃" },
+        { key: 14, label: "棉被" }
       ]
     };
   },
