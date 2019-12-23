@@ -1,0 +1,14 @@
+.profile {
+  &--item {
+    padding: 7px 0;
+    font-weight: 900;
+
+    @include flex(flex-start, flex-start);
+    > span {
+      margin-right: 1rem;
+      min-width: 8rem;
+      color: $second-color-light;
+      font-weight: normal;
+    }
+  }
+}

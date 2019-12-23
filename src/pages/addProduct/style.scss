@@ -1,0 +1,26 @@
+.addProduct {
+  .btn--primary {
+    margin: 3rem auto;
+    max-width: 20rem;
+  }
+}
+.form {
+  margin: auto;
+  min-height: 23rem;
+  max-width: 55rem;
+  width: 100%;
+
+  @include flex(center, space-between);
+  &--item {
+    margin-bottom: 1rem;
+    > label {
+      display: inline-block;
+      min-width: 8rem;
+      font-size: $fs-sm;
+    }
+    input {
+      padding: 0.5rem;
+      width: 20rem;
+    }
+  }
+}

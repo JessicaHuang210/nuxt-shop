@@ -1,0 +1,48 @@
+.dropdown {
+  display: inline-block;
+  &--item {
+    color: $second-color;
+    .fa {
+      transition: $transition-normal;
+      transform: rotate(0deg);
+      &.active {
+        transform: rotate(-180deg);
+      }
+    }
+  }
+  &--content {
+    position: absolute;
+    top: calc(100% - 1px);
+    right: 0;
+    left: 0;
+    padding: 1rem;
+    width: 100vw;
+    border-bottom: $border-normal;
+    background-color: rgba(white, 0.95);
+    > div {
+      @include flex(flex-start, space-between);
+    }
+    .container {
+      flex-wrap: wrap;
+      justify-content: flex-start;
+    }
+    &--item {
+      display: block;
+      margin-left: -0.5rem;
+      padding: 1rem 0.5rem;
+      color: $second-color-light;
+      transition: $transition-fast;
+      flex-basis: 33.3%;
+
+      @include rwd(md) {
+        flex-basis: 50%;
+      }
+      @include rwd(sm) {
+        flex-basis: 100%;
+      }
+      &:hover {
+        background-color: $bg-color-1;
+      }
+    }
+  }
+}

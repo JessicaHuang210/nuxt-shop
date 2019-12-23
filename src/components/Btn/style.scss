@@ -1,0 +1,29 @@
+.btn {
+  display: inline-block;
+  padding: 1rem 2rem;
+  color: #fff;
+  text-align: center;
+  font-size: $fs-lg;
+  transition: $transition-fast;
+  &.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+.btn--block {
+  display: block;
+}
+
+.btn--primary {
+  background-color: $primary-color;
+  &:hover {
+    background-color: $primary-color-darken;
+  }
+}
+
+.btn--error {
+  background-color: $error-color;
+  &:hover {
+    background-color: $error-color-darken;
+  }
+}
