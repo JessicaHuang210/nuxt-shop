@@ -1,5 +1,7 @@
 # nuxt-demo
 
+[預覽](https://nxut-shop.firebaseapp.com/)
+
 >  
 
 ## Build Setup
