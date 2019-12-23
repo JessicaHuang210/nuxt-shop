@@ -6,19 +6,20 @@ export const state = () => ({
 });
 export const actions = {
   nuxtServerInit({ dispatch, commit }, { req }) {
-    const uid = getUserFromCookie(req.headers.cookie, "uid");
+    const cookie = ((req || {}).headers || {}).cookie || "";
+    const uid = getUserFromCookie(cookie, "uid");
     uid || dispatch("auth/getLoginState");
     uid &&
       commit("auth/setUser", {
-        displayName: getUserFromCookie(req.headers.cookie, "displayName"),
-        email: getUserFromCookie(req.headers.cookie, "email"),
+        displayName: getUserFromCookie(cookie, "displayName"),
+        email: getUserFromCookie(cookie, "email"),
         uid: uid,
-        photoURL: getUserFromCookie(req.headers.cookie, "photoURL")
+        photoURL: getUserFromCookie(cookie, "photoURL")
       });
     uid &&
       commit(
         "product/setCartCount",
-        parseInt(getUserFromCookie(req.headers.cookie, "cartCount"))
+        parseInt(getUserFromCookie(cookie, "cartCount"))
       );
   }
 };
