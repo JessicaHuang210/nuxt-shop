@@ -16,6 +16,8 @@ export default {
     ],
     link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }]
   },
+  srcDir: "src",
+  buildDir: "functions/.nuxt",
   /*
    ** Customize the progress-bar color
    */
