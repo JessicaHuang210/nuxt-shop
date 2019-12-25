@@ -53,6 +53,7 @@
   </div>
 </template>
 <script>
+import { mapState } from "vuex";
 import Btn from "~/components/Btn";
 import { db } from "~/plugins/firebase";
 import { deepCopy } from "~/utils";
@@ -68,9 +69,13 @@ export default {
   middleware: "check-auth",
   data() {
     return {
-      isLoading: false,
       formData: deepCopy(formDefaultData)
     };
+  },
+  computed: {
+    ...mapState({
+      isLoading: state => state.isLoading
+    })
   },
   methods: {
     reset() {
@@ -79,15 +84,16 @@ export default {
     async handleAddBtnClick(invalid) {
       if (invalid) return;
 
-      this.isLoading = true;
+      this.$store.commit("setIsLoading", true);
+
       const newPostKey = db.ref("products").push().key;
       let updates = {};
       updates["/products/" + newPostKey] = this.formData;
       await db.ref().update(updates);
-      this.isLoading = false;
+      this.$store.commit("setIsLoading", false);
       this.reset();
     }
   }
 };
 </script>
-<style lang="scss" src="./style.scss" scoped></style>
+

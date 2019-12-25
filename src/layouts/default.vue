@@ -2,12 +2,12 @@
   <div class="main">
     <transition name="fade">
       <Review v-if="isReviewActive"
-              class="main--right" />
+        class="main--right" />
     </transition>
     <div class="main--left"
-         :class="{active:isReviewActive}">
+      :class="{active:isReviewActive}">
       <div @click="handleOverlayClick"
-           class="main--left--overlay"></div>
+        class="main--left--overlay"></div>
       <Header />
       <div class="container">
         <nuxt />

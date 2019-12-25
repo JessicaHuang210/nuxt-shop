@@ -18,6 +18,7 @@ export default {
   },
   srcDir: "src",
   buildDir: "functions/.nuxt",
+
   /*
    ** Customize the progress-bar color
    */

@@ -1,28 +1,35 @@
 <template>
   <div class="dropdown">
     <a @click="handleMenuDropdownClick"
-      class="dropdown--item"
-      href="#"
-      ref="dropdownItem">
+       class="dropdown--item"
+       href="#"
+       ref="dropdownItem">
       {{ label }}
       <fa :class="{active:isOpen}"
-        :icon="['fas', iconName]"
-        class="fa" />
+          :icon="['fas', iconName]"
+          class="fa" />
     </a>
     <transition name="fade">
       <div class="dropdown--content"
-        v-if="isOpen">
-        <div class="container">
-          <a :key="i.key"
-            v-for="i in dataFormat"
-            class="dropdown--content--item"
-            href="#">{{ i.label}}</a>
-        </div>
+           v-if="isOpen">
+        <fa :icon="['fas', 'spinner']"
+            class="fa fa-spin text-secondary-light"
+            v-if="isLoading" />
+        <transition name="fade">
+          <div v-if="!isLoading"
+               class="container">
+            <a :key="i.key"
+               v-for="i in dataFormat"
+               class="dropdown--content--item"
+               href="#">{{ i.cateName }}</a>
+          </div>
+        </transition>
       </div>
     </transition>
   </div>
 </template>
 <script>
+import { mapState } from "vuex";
 export default {
   name: "DropDownMenuItem",
   props: {
@@ -38,7 +45,10 @@ export default {
   computed: {
     dataFormat() {
       return this.data || [];
-    }
+    },
+    ...mapState({
+      isLoading: state => state.isLoading
+    })
   },
   methods: {
     handleMenuDropdownClick() {

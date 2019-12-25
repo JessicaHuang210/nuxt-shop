@@ -19,12 +19,14 @@
     width: 100vw;
     border-bottom: $border-normal;
     background-color: rgba(white, 0.95);
+    text-align: center;
     > div {
       @include flex(flex-start, space-between);
     }
     .container {
       flex-wrap: wrap;
       justify-content: flex-start;
+      text-align: left;
     }
     &--item {
       display: block;
@@ -43,6 +45,9 @@
       &:hover {
         background-color: $bg-color-1;
       }
+    }
+    .fa {
+      margin: 4rem auto;
     }
   }
 }

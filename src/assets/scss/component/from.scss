@@ -1,0 +1,36 @@
+.form {
+  margin: auto;
+  min-height: 23rem;
+  max-width: 55rem;
+  width: 100%;
+
+  @include flex(center, space-between);
+  &--item {
+    margin-bottom: 1rem;
+    > label {
+      display: inline-block;
+      min-width: 8rem;
+      font-size: $fs-sm;
+    }
+    input {
+      padding: 0.5rem;
+      border: $border-normal;
+      width: 20rem;
+      outline: 0;
+    }
+    select {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      padding: 0.5em;
+      background-color: transparent;
+      border: $border-normal;
+      height: 30px;
+      width: 20rem;
+      outline: 0;
+    }
+  }
+  & + .btn {
+    margin: 3rem auto;
+    max-width: 20rem;
+  }
+}

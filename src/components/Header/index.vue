@@ -16,7 +16,6 @@
             <a class="sub-header--menu--item"
               href="#">瑞典餐廳</a>
           </nav>
-
           <fa :icon="['fas', 'spinner']"
             class="fa fa-spin text-secondary-light"
             v-if="isLoading" />
@@ -48,7 +47,8 @@
                 class="main-header--menu--item"
                 iconName="chevron-down"
                 label="產品" />
-              <DropDownMenuItem class="main-header--menu--item"
+              <DropDownMenuItem :data="spaceMenuArr"
+                class="main-header--menu--item"
                 iconName="chevron-down"
                 label="空間" />
               <a class="main-header--menu--item"
@@ -82,36 +82,19 @@
 </template>
 
 <script>
+import { db } from "~/plugins/firebase";
 import Cookie from "js-cookie";
 import { mapGetters, mapState } from "vuex";
 import DropDownMenuItem from "@/components/DropDownMenuItem";
 export default {
   name: "Header",
   components: { DropDownMenuItem },
-  data() {
-    return {
-      productMenuArr: [
-        { key: 1, label: "雙人床" },
-        { key: 2, label: "泡綿/乳膠床墊" },
-        { key: 3, label: "彈簧床墊" },
-        { key: 4, label: "系統衣櫃 - PAX系列" },
-        { key: 5, label: "衣櫃" },
-        { key: 6, label: "抽屜櫃" },
-        { key: 7, label: "棉被" },
-        { key: 8, label: "雙人床" },
-        { key: 9, label: "泡綿/乳膠床墊" },
-        { key: 10, label: "彈簧床墊" },
-        { key: 11, label: "系統衣櫃 - PAX系列" },
-        { key: 12, label: "衣櫃" },
-        { key: 13, label: "抽屜櫃" },
-        { key: 14, label: "棉被" }
-      ]
-    };
-  },
   computed: {
     ...mapState({
       isLoading: state => state.isLoading,
-      cartCount: state => state.product.cartCount
+      cartCount: state => state.product.cartCount,
+      productMenuArr: state => state.header.productMenuArr,
+      spaceMenuArr: state => state.header.spaceMenuArr
     }),
     ...mapGetters({
       userProfile: "auth/user",
@@ -131,7 +114,8 @@ export default {
     handleLogoClick() {
       this.$router.push({ path: "/" });
     }
-  }
+  },
+  mounted() {}
 };
 </script>
 <style lang="scss" src="./style.scss" scoped></style>
