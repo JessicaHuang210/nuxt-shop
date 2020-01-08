@@ -4,6 +4,9 @@
 
 >  
 
+## 使用技術
+nuxt.js / firebase database / firebase hosting / firebase functions / firebase google login / node.js express 
+
 ## Build Setup
 
 ``` bash
